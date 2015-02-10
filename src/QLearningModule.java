@@ -7,9 +7,9 @@
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-package edu.nebraska.lincoln.iamas.learning.reinforcement.qlearning;
 
-import edu.nebraska.lincoln.iamas.datastructures.table.NumberTable;
+
+//import edu.nebraska.lincoln.iamas.datastructures.table.NumberTable;
 
 /**
  * The {@code QLearningModule} class provides an agent intelligence module
