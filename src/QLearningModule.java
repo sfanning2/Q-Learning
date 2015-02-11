@@ -157,7 +157,9 @@ public class QLearningModule<State, Action> {
     private void updateUtilityTable(State state, State nextState, Action action,
             double reward) {
         // increment the number of updates
-        utilityUpdates.addValue(state, action, Integer.valueOf(1));
+    	Integer currentUpdateValue = utilityUpdates.getValue(state, action);
+    	Integer newUpdateValue = Integer.valueOf(currentUpdateValue.intValue() + 1 );
+    	utilityUpdates.updateValue(state, action, newUpdateValue);
         totalNumUpdates++;
 
         // compute the new utility in the table
@@ -279,4 +281,16 @@ public class QLearningModule<State, Action> {
     public NumberTable<State, Action, Double> getUtilityTable() {
         return new NumberTable<State, Action, Double>(utilityTable);
     }
+    
+    /**
+     * Returns a deep-copy of the utility updates table.
+     *
+     * @return The table of utility updates indexed by {@code State}/{@code Action}
+     *         pairs
+     */
+    public NumberTable<State, Action, Integer> getUtilityUpdatesTable() {
+    	return new NumberTable<State, Action, Integer>(utilityUpdates);
+    }
+    
+    
 }
