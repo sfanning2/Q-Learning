@@ -1,5 +1,8 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class NumberTable<T, K, V extends Comparable<? super V>> {
 
@@ -33,18 +36,17 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	}
 
 	/**
-	 * add with default utility
+	 * Add or re-initialize a state with the provided actions
+	 * 
 	 * @param state
-	 * @param action
+	 * @param actions
 	 */
-	public void addValue(T state, K action) {
-		// Update or create the value
-		stateActionTable.get(state).put(action, this.defaultValue);
-	}
-	
-	public void addValue(T state, K action, V utility) {
-		// Update or create the value
-		stateActionTable.get(state).put(action, utility);
+	public void addStateWithActions(T state, List<K> actions) {
+		HashMap<K, V> actionValueMap = new HashMap<K, V>();
+		for (K action : actions) {
+			actionValueMap.put(action, defaultValue);
+		}
+		this.stateActionTable.put(state, actionValueMap);
 	}
 
 	/**
@@ -56,12 +58,13 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	public K getRowMaxColumn(T state) {
 		K action = null;
 		V maxValue = null;
-		for (Entry<K, V> actionValueEntry : this.stateActionTable.get(state).entrySet()) {
+		for (Entry<K, V> actionValueEntry : this.stateActionTable.get(state)
+				.entrySet()) {
 			if (maxValue == null) {
 				// set a starting action/value
 				action = actionValueEntry.getKey();
 				maxValue = actionValueEntry.getValue();
-			} else if (actionValueEntry.getValue().compareTo(maxValue) > 0){
+			} else if (actionValueEntry.getValue().compareTo(maxValue) > 0) {
 				// update the action/value
 				action = actionValueEntry.getKey();
 				maxValue = actionValueEntry.getValue();
@@ -90,5 +93,45 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	public void updateValue(T state, K action, V utility) {
 		// Update or create the value
 		stateActionTable.get(state).put(action, utility);
+	}
+
+	/**
+	 * 
+	 * @return a csv style string of values
+	 */
+	public String toString() {
+		StringBuilder mainBuilder = new StringBuilder("State\n");
+	
+		for (Entry<T, HashMap<K, V>> entry : this.stateActionTable.entrySet()) {
+			// Add state
+			mainBuilder.append(entry.getKey().toString());
+			mainBuilder.append(",");
+			
+			// Prepare actions and values
+			StringBuilder actionRow = new StringBuilder();
+			StringBuilder valueRow = new StringBuilder();
+			SortedSet<Entry<K, V>> entries = new TreeSet<Entry<K, V>>(new EntryComparator());
+			entries.addAll(entry.getValue().entrySet());
+			
+			for (Entry<K, V> innerEntry : entries) {
+				// Add actions
+				actionRow.append(innerEntry.getKey().toString());
+				actionRow.append(",");
+				
+				// Add values
+				valueRow.append(",");
+				valueRow.append(innerEntry.getValue().toString());
+			}
+			
+			// add actions
+			mainBuilder.append(actionRow.toString());
+			mainBuilder.append("\n");
+			
+			// add values
+			mainBuilder.append(valueRow.toString());
+			mainBuilder.append("\n");
+			
+		}
+		return mainBuilder.toString();
 	}
 }
