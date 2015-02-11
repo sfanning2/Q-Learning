@@ -46,9 +46,6 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	
 	public void addValue(T state, K action, V utility) {
 		// Update or create the value
-            if(stateActionTable.get(state)== null){
-                stateActionTable.put(state, new HashMap<K, V>());
-            }
 		stateActionTable.get(state).put(action, utility);
 	}
 
@@ -61,9 +58,7 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	public K getRowMaxColumn(T state) {
 		K action = null;
 		V maxValue = null;
-                if(stateActionTable.get(state) == null){
-                    return null;
-                }else{
+
 		for (Entry<K, V> actionValueEntry : this.stateActionTable.get(state).entrySet()) {
 			if (maxValue == null) {
 				// set a starting action/value
@@ -76,7 +71,6 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 			}
 		}
 		return action;
-                }
 	}
 
 	/**
@@ -87,11 +81,7 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	 * @return
 	 */
 	public V getValue(T state, K action) {
-            if(stateActionTable.get(state)==null){
-                return (V) Double.valueOf(0);
-            }else{
 		return stateActionTable.get(state).get(action);
-            }
 	}
 
 	/**
@@ -102,9 +92,5 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	 */
 	public void updateValue(T state, K action, V utility) {
 		// Update or create the value
-            if(stateActionTable.get(state)==null){
-                stateActionTable.put(state, new HashMap<K, V>());
-            }
 		stateActionTable.get(state).put(action, utility);
-	}
 }
