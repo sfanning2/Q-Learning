@@ -73,6 +73,7 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 		return action;
 	}
 
+
 	/**
 	 * Get the expected-utility value of a state action pair
 	 * 
@@ -93,4 +94,5 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	public void updateValue(T state, K action, V utility) {
 		// Update or create the value
 		stateActionTable.get(state).put(action, utility);
+        }
 }
