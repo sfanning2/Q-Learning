@@ -41,10 +41,10 @@ public class QLearningModule<State, Action> {
     private final double defaultUtility;
 
     /** The learning rate of the algorithm, in [0.0, 1.0]. */
-    private  double learningRate;
+    private double learningRate;
 
     /** The discount rate of the algorithm, in [0.0, 1.0]. */
-    private  double discountRate;
+    private double discountRate;
 
     /**
      * Denotes whether or not the learning rate should be discounted
@@ -113,13 +113,13 @@ public class QLearningModule<State, Action> {
         utilityUpdates = new NumberTable<State, Action, Integer>(
                 Integer.valueOf(0));
     }
-    public void setLearningRate(double rate){
-        learningRate  = useDiscountedLearning
-                ? 1.0
-                : Math.min(1.0, Math.max(0.0, rate));
+    public void setDiscountRate(double pDiscountRate){
+        discountRate = Math.min(1.0, Math.max(0.0, pDiscountRate));
     }
-    public void setDiscountRate(double rate){
-        discountRate = Math.min(1.0, Math.max(0.0, rate));
+    public void setLearningRate(double pLearningRate){
+        learningRate = useDiscountedLearning
+                ? 1.0
+                : Math.min(1.0, Math.max(0.0, pLearningRate));
     }
     /**
      * Performs the learning function for the {@code QLearningModule}.
@@ -166,7 +166,9 @@ public class QLearningModule<State, Action> {
     private void updateUtilityTable(State state, State nextState, Action action,
             double reward) {
         // increment the number of updates
-        utilityUpdates.addValue(state, action, Integer.valueOf(1));
+    	Integer currentUpdateValue = utilityUpdates.getValue(state, action);
+    	Integer newUpdateValue = Integer.valueOf(currentUpdateValue.intValue() + 1 );
+    	utilityUpdates.updateValue(state, action, newUpdateValue);
         totalNumUpdates++;
 
         // compute the new utility in the table
@@ -230,9 +232,7 @@ public class QLearningModule<State, Action> {
     /**
      * Determines the best {@code Action} for a given {@code State}.
      *
-     * @param state The {@code Stpublic void setLearningRate(double rate){
-        learningRate  = rate;
-    }ate} to find the best {@code Action} for.
+     * @param state The {@code State} to find the best {@code Action} for.
      *
      * @return The {@code Action} with maximum expected utility for
      *         {@code state}.
@@ -280,8 +280,7 @@ public class QLearningModule<State, Action> {
         // grab the number of updates
         return utilityUpdates.getValue(state, action).intValue();
     }
-    
-    
+
     /**
      * Returns a deep-copy of the utility table.
      *
@@ -291,5 +290,16 @@ public class QLearningModule<State, Action> {
     public NumberTable<State, Action, Double> getUtilityTable() {
         return new NumberTable<State, Action, Double>(utilityTable);
     }
+    
+    /**
+     * Returns a deep-copy of the utility updates table.
+     *
+     * @return The table of utility updates indexed by {@code State}/{@code Action}
+     *         pairs
+     */
+    public NumberTable<State, Action, Integer> getUtilityUpdatesTable() {
+    	return new NumberTable<State, Action, Integer>(utilityUpdates);
+    }
+    
     
 }
