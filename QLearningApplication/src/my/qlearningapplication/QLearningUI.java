@@ -12,6 +12,8 @@ import java.util.*;
  */
 public class QLearningUI extends javax.swing.JFrame {
 
+    
+    
     /**
      * Creates new form QLearningUI
      */
@@ -39,50 +41,52 @@ public class QLearningUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jTextField4InState = new javax.swing.JTextField();
+        jTextField3Action = new javax.swing.JTextField();
+        jTextField5OutState = new javax.swing.JTextField();
+        jTextField6Reward = new javax.swing.JTextField();
+        jButton2AddIteration = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jTextField7AlphaNewTable = new javax.swing.JTextField();
+        jTextField8BetaNewTable = new javax.swing.JTextField();
+        jTextField9QNewTable = new javax.swing.JTextField();
+        jButton3CreateNewTable = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        jTextField10Action = new javax.swing.JTextField();
+        jButtonAddAction = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        jTextField11State = new javax.swing.JTextField();
+        jButtonAddState = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField1SetAlpha = new javax.swing.JTextField();
+        jTextField2SetBeta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton1SetAlphaBeta = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jTextField12RemoveAction = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jTextField13RemoveState = new javax.swing.JTextField();
+        jButton6RemoveAction = new javax.swing.JButton();
+        jButton7RemoveState = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
+        jTextField14ActionSetQ = new javax.swing.JTextField();
+        jTextField15StateSetQ = new javax.swing.JTextField();
+        jTextField16QSetQ = new javax.swing.JTextField();
+        jButton8SetQ = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jTextPane1OutputPanel = new javax.swing.JTextPane();
+        jPanel11 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,34 +137,34 @@ public class QLearningUI extends javax.swing.JFrame {
 
         jLabel8.setText("Reward");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jTextField4InState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jTextField4InStateActionPerformed(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jTextField3Action.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jTextField3ActionActionPerformed(evt);
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jTextField5OutState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jTextField5OutStateActionPerformed(evt);
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jTextField6Reward.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jTextField6RewardActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Add Iteration");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2AddIteration.setText("Add Iteration");
+        jButton2AddIteration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2AddIterationActionPerformed(evt);
             }
         });
 
@@ -183,19 +187,19 @@ public class QLearningUI extends javax.swing.JFrame {
                                     .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField3)))
+                                    .addComponent(jTextField4InState)
+                                    .addComponent(jTextField3Action)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField6)))))
+                                    .addComponent(jTextField5OutState)
+                                    .addComponent(jTextField6Reward)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2AddIteration)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -206,42 +210,42 @@ public class QLearningUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField4InState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3Action, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField5OutState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6Reward, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(17, 17, 17)
-                .addComponent(jButton2)
+                .addComponent(jButton2AddIteration)
                 .addGap(110, 110, 110))
         );
 
-        jTextField4.getAccessibleContext().setAccessibleName("InputStateText");
-        jTextField3.getAccessibleContext().setAccessibleName("ActionText");
-        jTextField5.getAccessibleContext().setAccessibleName("OutputStateText");
-        jTextField6.getAccessibleContext().setAccessibleName("RewardText");
-        jButton2.getAccessibleContext().setAccessibleDescription("");
+        jTextField4InState.getAccessibleContext().setAccessibleName("InputStateText");
+        jTextField3Action.getAccessibleContext().setAccessibleName("ActionText");
+        jTextField5OutState.getAccessibleContext().setAccessibleName("OutputStateText");
+        jTextField6Reward.getAccessibleContext().setAccessibleName("RewardText");
+        jButton2AddIteration.getAccessibleContext().setAccessibleDescription("");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Create New Table"));
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        jTextField9QNewTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                jTextField9QNewTableActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Create");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton3CreateNewTable.setText("Create");
+        jButton3CreateNewTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton3CreateNewTableActionPerformed(evt);
             }
         });
 
@@ -261,18 +265,18 @@ public class QLearningUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField7AlphaNewTable, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField8BetaNewTable, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField9QNewTable, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addComponent(jButton3CreateNewTable)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -280,18 +284,18 @@ public class QLearningUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7AlphaNewTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField8BetaNewTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField9QNewTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(jButton3CreateNewTable)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -299,25 +303,25 @@ public class QLearningUI extends javax.swing.JFrame {
 
         jLabel1.setText("Action");
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        jTextField10Action.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                jTextField10ActionActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Add");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAddAction.setText("Add");
+        jButtonAddAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonAddActionActionPerformed(evt);
             }
         });
 
         jLabel9.setText("State");
 
-        jButton5.setText("Add");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAddState.setText("Add");
+        jButtonAddState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonAddStateActionPerformed(evt);
             }
         });
 
@@ -329,7 +333,7 @@ public class QLearningUI extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4))
+                        .addComponent(jButtonAddAction))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,11 +341,11 @@ public class QLearningUI extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                            .addComponent(jTextField10)))
+                            .addComponent(jTextField11State, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                            .addComponent(jTextField10Action)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton5)))
+                        .addComponent(jButtonAddState)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -349,42 +353,42 @@ public class QLearningUI extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField10Action, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(jButtonAddAction)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField11State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5))
+                .addComponent(jButtonAddState))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Reset Alpha & Beta"));
 
         jLabel2.setText("Alpha");
 
-        jTextField1.setToolTipText("");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1SetAlpha.setToolTipText("");
+        jTextField1SetAlpha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextField1SetAlphaActionPerformed(evt);
             }
         });
 
-        jTextField2.setToolTipText("");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextField2SetBeta.setToolTipText("");
+        jTextField2SetBeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextField2SetBetaActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Beta");
 
-        jButton1.setText("Set");
-        jButton1.setActionCommand("setAlphaBeta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1SetAlphaBeta.setText("Set");
+        jButton1SetAlphaBeta.setActionCommand("setAlphaBeta");
+        jButton1SetAlphaBeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1SetAlphaBetaActionPerformed(evt);
             }
         });
 
@@ -401,11 +405,11 @@ public class QLearningUI extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(18, 71, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jTextField2)))
+                            .addComponent(jTextField1SetAlpha, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(jTextField2SetBeta)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1SetAlphaBeta)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -414,45 +418,45 @@ public class QLearningUI extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1SetAlpha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2SetBeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1))
+                .addComponent(jButton1SetAlphaBeta))
         );
 
-        jTextField1.getAccessibleContext().setAccessibleName("AlphaText");
-        jTextField2.getAccessibleContext().setAccessibleName("BetaText");
-        jButton1.getAccessibleContext().setAccessibleName("SetAlphaBeta");
-        jButton1.getAccessibleContext().setAccessibleDescription("");
+        jTextField1SetAlpha.getAccessibleContext().setAccessibleName("AlphaText");
+        jTextField2SetBeta.getAccessibleContext().setAccessibleName("BetaText");
+        jButton1SetAlphaBeta.getAccessibleContext().setAccessibleName("SetAlphaBeta");
+        jButton1SetAlphaBeta.getAccessibleContext().setAccessibleDescription("");
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Remove Elements"));
 
         jLabel13.setText("Action");
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        jTextField12RemoveAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                jTextField12RemoveActionActionPerformed(evt);
             }
         });
 
         jLabel14.setText("State");
 
-        jTextField13.setToolTipText("");
+        jTextField13RemoveState.setToolTipText("");
 
-        jButton6.setText("Add");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButton6RemoveAction.setText("Add");
+        jButton6RemoveAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButton6RemoveActionActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Add");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButton7RemoveState.setText("Add");
+        jButton7RemoveState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButton7RemoveStateActionPerformed(evt);
             }
         });
 
@@ -467,33 +471,33 @@ public class QLearningUI extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                            .addComponent(jTextField12)))
+                            .addComponent(jTextField13RemoveState, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(jTextField12RemoveAction)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6))
+                        .addComponent(jButton6RemoveAction))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton7)))
+                        .addComponent(jButton7RemoveState)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField12RemoveAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(jButton6RemoveAction)
                 .addGap(9, 9, 9)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField13RemoveState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7))
+                .addComponent(jButton7RemoveState))
         );
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Set Q Value"));
@@ -504,16 +508,16 @@ public class QLearningUI extends javax.swing.JFrame {
 
         jLabel17.setText("Q Value");
 
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+        jTextField14ActionSetQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
+                jTextField14ActionSetQActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Set");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jButton8SetQ.setText("Set");
+        jButton8SetQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButton8SetQActionPerformed(evt);
             }
         });
 
@@ -527,18 +531,18 @@ public class QLearningUI extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField16QSetQ, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton8))
+                        .addComponent(jButton8SetQ))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addComponent(jLabel16))
                         .addGap(67, 67, 67)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField15)
-                            .addComponent(jTextField14))))
+                            .addComponent(jTextField15StateSetQ)
+                            .addComponent(jTextField14ActionSetQ))))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -547,23 +551,23 @@ public class QLearningUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField14ActionSetQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField15StateSetQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField16QSetQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton8)
+                .addComponent(jButton8SetQ)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Program Response"));
 
-        jScrollPane2.setViewportView(jTextPane1);
+        jScrollPane2.setViewportView(jTextPane1OutputPanel);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -582,11 +586,36 @@ public class QLearningUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Export"));
+
+        jButton2.setText("Export");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(218, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(21, 21, 21))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -594,11 +623,13 @@ public class QLearningUI extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -615,144 +646,170 @@ public class QLearningUI extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField1SetAlphaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1SetAlphaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextField1SetAlphaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1SetAlphaBetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SetAlphaBetaActionPerformed
         //set Alpha (learning rate) and Beta (discount rate)
-        module.setLearningRate(Double.parseDouble(jTextField1.getText()));
-        module.setDiscountRate(Double.parseDouble(jTextField2.getText()));
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Application.getInstance().getModule().setLearningRate(Double.parseDouble(jTextField1SetAlpha.getText()));
+        Application.getInstance().getModule().setDiscountRate(Double.parseDouble(jTextField2SetBeta.getText()));
+    }//GEN-LAST:event_jButton1SetAlphaBetaActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField4InStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4InStateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jTextField4InStateActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextField2SetBetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2SetBetaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextField2SetBetaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2AddIterationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AddIterationActionPerformed
         // add new input to module table
         //search state and action dictionaries for existing states and actions
+        HashMap<String, State> states = Application.getInstance().getStates();
+        HashMap<String, Action> actions = Application.getInstance().getActions();
         State currentState;
         Action currentAction;
         State nextState;
         double reward;
         
-        String currentStateString = jTextField4.getText();
-        String currentActionString = jTextField3.getText();
-        String nextStateString = jTextField5.getText();
-        String rewardString = jTextField6.getText();
+        String currentStateString = jTextField4InState.getText();
+        String currentActionString = jTextField3Action.getText();
+        String nextStateString = jTextField5OutState.getText();
+        String rewardString = jTextField6Reward.getText();
         
         
         //set state and action objects 
         if(states.get(currentStateString)==null){
-            currentState = new State(currentStateString);
-            states.put(currentStateString, currentState);
+            currentState = Application.getInstance().addState(currentStateString);
         }else{
             currentState = states.get(currentStateString);
         }
         
         if(actions.get(currentActionString)==null){
-            currentAction = new Action(currentActionString);
-            actions.put(currentActionString, currentAction);
+            currentAction = Application.getInstance().addAction(currentActionString);
         }else{
                 currentAction = actions.get(currentActionString);
         
         }
         
         if(states.get(nextStateString)==null){
-            nextState = new State(nextStateString);
-            states.put(nextStateString, nextState);
+            nextState = Application.getInstance().addState(nextStateString);
         }else{
             nextState = states.get(nextStateString);
         }
         
         reward = Double.parseDouble(rewardString);
         
-        module.learnUtility(currentState, nextState, currentAction, reward);
+        Application.getInstance().getModule().learnUtility(currentState, nextState, currentAction, reward);
         //update module with new values
         
         //clear fields
-        jTextField4.setText("");
-        jTextField3.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
+        jTextField4InState.setText("");
+        jTextField3Action.setText("");
+        jTextField5OutState.setText("");
+        jTextField6Reward.setText("");
+        
+        Action bestAction = Application.getInstance().getModule().bestAction(nextState);
+        
+        String message = String.format("The best action when in state %s is %s", nextState.getName(), bestAction.getName());
+        
+        this.jTextPane1OutputPanel.setText(message);
         
         //update module table with state and action
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2AddIterationActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jTextField3ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jTextField3ActionActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jTextField5OutStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5OutStateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jTextField5OutStateActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void jTextField6RewardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6RewardActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_jTextField6RewardActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3CreateNewTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3CreateNewTableActionPerformed
         // TODO add your handling code here:
         //create new table
-        Double alphaString = Double.parseDouble(jTextField7.getText());
-        Double betaString = Double.parseDouble(jTextField8.getText());
-        Double defaultString = Double.parseDouble(jTextField9.getText());
-        module = new QLearningModule(defaultString, true, alphaString, betaString);
-        states = new HashMap<String, State>() {};
-        actions = new HashMap<String, Action>();
-    }//GEN-LAST:event_jButton3ActionPerformed
+        Double alphaString = Double.parseDouble(jTextField7AlphaNewTable.getText());
+        Double betaString = Double.parseDouble(jTextField8BetaNewTable.getText());
+        Double defaultString = Double.parseDouble(jTextField9QNewTable.getText());
+        Application.getInstance().setModule(new QLearningModule(defaultString, false, alphaString, betaString));
+        Application.getInstance().setStates(new HashMap<String, State>());
+        Application.getInstance().setActions( new HashMap<String, Action>());
+    }//GEN-LAST:event_jButton3CreateNewTableActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void jTextField9QNewTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9QNewTableActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_jTextField9QNewTableActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionActionPerformed
         // add action from text field 10
-    }//GEN-LAST:event_jButton4ActionPerformed
+        String action = this.jTextField10Action.getText();
+        Application.getInstance().addAction(action);
+    }//GEN-LAST:event_jButtonAddActionActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonAddStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddStateActionPerformed
         // add state from text field 11
-    }//GEN-LAST:event_jButton5ActionPerformed
+        String state = this.jTextField11State.getText();
+        Application.getInstance().addState(state);
+    }//GEN-LAST:event_jButtonAddStateActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jButton8SetQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8SetQActionPerformed
         // update Q value from action: text field 14, state: text field 15, Q value: text field 16
-    }//GEN-LAST:event_jButton8ActionPerformed
+        String state = this.jTextField15StateSetQ.getText();
+        String action = this.jTextField14ActionSetQ.getText();
+        String value = this.jTextField16QSetQ.getText();
+        Application.getInstance().getModule().setQValue(null, null, Double.parseDouble(value));
+    }//GEN-LAST:event_jButton8SetQActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButton6RemoveActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6RemoveActionActionPerformed
         // remove action from text field 12
-    }//GEN-LAST:event_jButton6ActionPerformed
+        String action = this.jTextField12RemoveAction.getText();
+        Application.getInstance().removeAction(action);
+    }//GEN-LAST:event_jButton6RemoveActionActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButton7RemoveStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7RemoveStateActionPerformed
         // remove state from text field 13
-    }//GEN-LAST:event_jButton7ActionPerformed
+        String state = this.jTextField13RemoveState.getText();
+        Application.getInstance().removeState(state);
+    }//GEN-LAST:event_jButton7RemoveStateActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void jTextField10ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_jTextField10ActionActionPerformed
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void jTextField14ActionSetQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionSetQActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+    }//GEN-LAST:event_jTextField14ActionSetQActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void jTextField12RemoveActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12RemoveActionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_jTextField12RemoveActionActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        // Export
+        String text = Application.getInstance().getModule().getUtilityTable().toString();
+        GenerateTextFile.generateTextFile("output.csv", text);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -780,7 +837,7 @@ public class QLearningUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(QLearningUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        Application.getInstance();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -790,14 +847,15 @@ public class QLearningUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton1SetAlphaBeta;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton2AddIteration;
+    private javax.swing.JButton jButton3CreateNewTable;
+    private javax.swing.JButton jButton6RemoveAction;
+    private javax.swing.JButton jButton7RemoveState;
+    private javax.swing.JButton jButton8SetQ;
+    private javax.swing.JButton jButtonAddAction;
+    private javax.swing.JButton jButtonAddState;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -816,6 +874,7 @@ public class QLearningUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -827,25 +886,25 @@ public class QLearningUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextField jTextField10Action;
+    private javax.swing.JTextField jTextField11State;
+    private javax.swing.JTextField jTextField12RemoveAction;
+    private javax.swing.JTextField jTextField13RemoveState;
+    private javax.swing.JTextField jTextField14ActionSetQ;
+    private javax.swing.JTextField jTextField15StateSetQ;
+    private javax.swing.JTextField jTextField16QSetQ;
+    private javax.swing.JTextField jTextField1SetAlpha;
+    private javax.swing.JTextField jTextField2SetBeta;
+    private javax.swing.JTextField jTextField3Action;
+    private javax.swing.JTextField jTextField4InState;
+    private javax.swing.JTextField jTextField5OutState;
+    private javax.swing.JTextField jTextField6Reward;
+    private javax.swing.JTextField jTextField7AlphaNewTable;
+    private javax.swing.JTextField jTextField8BetaNewTable;
+    private javax.swing.JTextField jTextField9QNewTable;
+    private javax.swing.JTextPane jTextPane1OutputPanel;
     // End of variables declaration//GEN-END:variables
-    private QLearningModule module;
-    private HashMap<String, State> states;
-    private HashMap<String, Action> actions;
+//    private QLearningModule module;
+//    private HashMap<String, State> states;
+//    private HashMap<String, Action> actions;
 }

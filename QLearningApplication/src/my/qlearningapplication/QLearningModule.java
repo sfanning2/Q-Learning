@@ -27,6 +27,9 @@
  */
 package my.qlearningapplication;
 
+import java.util.Collection;
+import java.util.List;
+
 public class QLearningModule<State, Action> {
     /** The table of utilities, indexed by {@code State} and {@code Action}. */
     private final NumberTable<State, Action, Double> utilityTable;
@@ -301,5 +304,33 @@ public class QLearningModule<State, Action> {
     	return new NumberTable<State, Action, Integer>(utilityUpdates);
     }
     
+    public void addStateWithActions(State state, Collection<Action> actions) {
+    this.utilityTable.addStateWithActions(state, actions);
+    this.utilityUpdates.addStateWithActions(state, actions);
+    }
+    
+    public void addAction(Action action) {
+        this.utilityTable.addAction(action);
+        this.utilityUpdates.addAction(action);
+    }
+    
+    public void removeState(State state) {
+        this.utilityTable.removeState(state);
+    }
+    
+    public void removeAction(Action action) {
+        this.utilityTable.removeAction(action);
+    }
+    
+    public void setQValue(State state, Action action, Double newUtility) {
+        Integer currentUpdateValue = utilityUpdates.getValue(state, action);
+    	Integer newUpdateValue = Integer.valueOf(currentUpdateValue.intValue() + 1 );
+        
+        utilityUpdates.updateValue(state, action, newUpdateValue);
+        totalNumUpdates++;
+
+        // update the table
+        utilityTable.updateValue(state, action, newUtility);
+    }
     
 }

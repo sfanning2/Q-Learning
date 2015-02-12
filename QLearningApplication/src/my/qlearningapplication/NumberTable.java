@@ -1,5 +1,6 @@
 package my.qlearningapplication;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -43,14 +44,31 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	 * @param state
 	 * @param actions
 	 */
-	public void addStateWithActions(T state, List<K> actions) {
+	public void addStateWithActions(T state, Collection<K> actions) {
 		HashMap<K, V> actionValueMap = new HashMap<K, V>();
 		for (K action : actions) {
 			actionValueMap.put(action, defaultValue);
 		}
 		this.stateActionTable.put(state, actionValueMap);
 	}
+        
+        public void addAction(K action) {
+            // For each state, add the action
+            for (Entry<T, HashMap<K, V>> entry : this.stateActionTable.entrySet()) {
+                entry.getValue().put(action, defaultValue);
+            }
+        }
 
+        public void removeState(T state) {
+            this.stateActionTable.remove(state);
+        }
+        
+        public void removeAction(K action) {
+            for (Entry<T, HashMap<K, V>> entry : this.stateActionTable.entrySet()) {
+                entry.getValue().remove(action);
+            }
+        }
+        
 	/**
 	 * Get the action which maximizes utility for this state
 	 * 
@@ -104,7 +122,10 @@ public class NumberTable<T, K, V extends Comparable<? super V>> {
 	public String toString() {
 		StringBuilder mainBuilder = new StringBuilder("State\n");
 	
-		for (Entry<T, HashMap<K, V>> entry : this.stateActionTable.entrySet()) {
+                SortedSet<Entry<T, HashMap<K,V>>> stateEntries = new TreeSet<Entry<T, HashMap<K,V>>>(new EntryComparator());
+                stateEntries.addAll(this.stateActionTable.entrySet());
+                
+		for (Entry<T, HashMap<K, V>> entry : stateEntries) {
 			// Add state
 			mainBuilder.append(entry.getKey().toString());
 			mainBuilder.append(",");
