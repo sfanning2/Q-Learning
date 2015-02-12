@@ -446,14 +446,14 @@ public class QLearningUI extends javax.swing.JFrame {
 
         jTextField13RemoveState.setToolTipText("");
 
-        jButton6RemoveAction.setText("Add");
+        jButton6RemoveAction.setText("Remove");
         jButton6RemoveAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6RemoveActionActionPerformed(evt);
             }
         });
 
-        jButton7RemoveState.setText("Add");
+        jButton7RemoveState.setText("Remove");
         jButton7RemoveState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7RemoveStateActionPerformed(evt);
@@ -471,7 +471,7 @@ public class QLearningUI extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField13RemoveState, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                             .addComponent(jTextField12RemoveAction)))
@@ -486,7 +486,7 @@ public class QLearningUI extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jTextField12RemoveAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -582,8 +582,8 @@ public class QLearningUI extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Export"));
@@ -626,10 +626,9 @@ public class QLearningUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -650,10 +649,10 @@ public class QLearningUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -665,8 +664,20 @@ public class QLearningUI extends javax.swing.JFrame {
 
     private void jButton1SetAlphaBetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SetAlphaBetaActionPerformed
         //set Alpha (learning rate) and Beta (discount rate)
-        Application.getInstance().getModule().setLearningRate(Double.parseDouble(jTextField1SetAlpha.getText()));
-        Application.getInstance().getModule().setDiscountRate(Double.parseDouble(jTextField2SetBeta.getText()));
+       this.jTextPane1OutputPanel.setText("");
+        Double l, d;
+        try {
+        l = Double.parseDouble(jTextField1SetAlpha.getText());
+        d = Double.parseDouble(jTextField2SetBeta.getText());
+        }catch(NumberFormatException e){
+            this.jTextPane1OutputPanel.setText("Can't set alpha and beta");
+            return;
+        }
+        this.jTextPane1OutputPanel.setText("");
+        Application.getInstance().getModule().setLearningRate(l);
+        Application.getInstance().getModule().setDiscountRate(d);
+        jTextField1SetAlpha.setText("");
+        jTextField2SetBeta.setText("");
     }//GEN-LAST:event_jButton1SetAlphaBetaActionPerformed
 
     private void jTextField4InStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4InStateActionPerformed
@@ -680,6 +691,7 @@ public class QLearningUI extends javax.swing.JFrame {
     private void jButton2AddIterationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AddIterationActionPerformed
         // add new input to module table
         //search state and action dictionaries for existing states and actions
+        this.jTextPane1OutputPanel.setText("");
         HashMap<String, State> states = Application.getInstance().getStates();
         HashMap<String, Action> actions = Application.getInstance().getActions();
         State currentState;
@@ -692,8 +704,16 @@ public class QLearningUI extends javax.swing.JFrame {
         String nextStateString = jTextField5OutState.getText();
         String rewardString = jTextField6Reward.getText();
         
-        
+        if(currentStateString.equals("")|| currentActionString.equals("")|| nextStateString.equals("")|| rewardString.equals("")){
+            this.jTextPane1OutputPanel.setText("Error Arguments Invalid");
+        }else{
         //set state and action objects 
+        try{
+            reward = Double.parseDouble(rewardString);
+        }catch(NumberFormatException e){
+            this.jTextPane1OutputPanel.setText("Reward is not a number!");
+            return;
+        }
         if(states.get(currentStateString)==null){
             currentState = Application.getInstance().addState(currentStateString);
         }else{
@@ -713,13 +733,13 @@ public class QLearningUI extends javax.swing.JFrame {
             nextState = states.get(nextStateString);
         }
         
-        reward = Double.parseDouble(rewardString);
+        
         
         Application.getInstance().getModule().learnUtility(currentState, nextState, currentAction, reward);
         //update module with new values
         
         //clear fields
-        jTextField4InState.setText("");
+        jTextField4InState.setText(nextStateString);
         jTextField3Action.setText("");
         jTextField5OutState.setText("");
         jTextField6Reward.setText("");
@@ -731,6 +751,7 @@ public class QLearningUI extends javax.swing.JFrame {
         this.jTextPane1OutputPanel.setText(message);
         
         //update module table with state and action
+        }
     }//GEN-LAST:event_jButton2AddIterationActionPerformed
 
     private void jTextField3ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionActionPerformed
@@ -748,12 +769,25 @@ public class QLearningUI extends javax.swing.JFrame {
     private void jButton3CreateNewTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3CreateNewTableActionPerformed
         // TODO add your handling code here:
         //create new table
-        Double alphaString = Double.parseDouble(jTextField7AlphaNewTable.getText());
-        Double betaString = Double.parseDouble(jTextField8BetaNewTable.getText());
-        Double defaultString = Double.parseDouble(jTextField9QNewTable.getText());
+        this.jTextPane1OutputPanel.setText("");
+        Double alphaString;
+        Double betaString;
+        Double defaultString;
+        try{
+         alphaString = Double.parseDouble(jTextField7AlphaNewTable.getText());
+         betaString = Double.parseDouble(jTextField8BetaNewTable.getText());
+         defaultString = Double.parseDouble(jTextField9QNewTable.getText());
+        }catch(NumberFormatException e){
+            this.jTextPane1OutputPanel.setText("Inputs must be numbers");
+            return;
+        }
+        this.jTextPane1OutputPanel.setText("");
         Application.getInstance().setModule(new QLearningModule(defaultString, false, alphaString, betaString));
         Application.getInstance().setStates(new HashMap<String, State>());
         Application.getInstance().setActions( new HashMap<String, Action>());
+        jTextField7AlphaNewTable.setText("");
+        jTextField8BetaNewTable.setText("");
+        jTextField9QNewTable.setText("");
     }//GEN-LAST:event_jButton3CreateNewTableActionPerformed
 
     private void jTextField9QNewTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9QNewTableActionPerformed
@@ -762,34 +796,78 @@ public class QLearningUI extends javax.swing.JFrame {
 
     private void jButtonAddActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionActionPerformed
         // add action from text field 10
+        this.jTextPane1OutputPanel.setText("");
         String action = this.jTextField10Action.getText();
-        Application.getInstance().addAction(action);
+        if(action.equals("")){
+            this.jTextPane1OutputPanel.setText("Can't add action");
+            return;
+        }else{
+            Application.getInstance().addAction(action);
+            
+        }
+        this.jTextField10Action.setText("");
     }//GEN-LAST:event_jButtonAddActionActionPerformed
 
     private void jButtonAddStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddStateActionPerformed
         // add state from text field 11
+        this.jTextPane1OutputPanel.setText("");
         String state = this.jTextField11State.getText();
-        Application.getInstance().addState(state);
+        if(state.equals("")){
+            this.jTextPane1OutputPanel.setText("Can't add state");
+            return;
+        }else{
+           Application.getInstance().addState(state);
+        }
+        this.jTextField11State.setText("");
     }//GEN-LAST:event_jButtonAddStateActionPerformed
 
     private void jButton8SetQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8SetQActionPerformed
         // update Q value from action: text field 14, state: text field 15, Q value: text field 16
+        this.jTextPane1OutputPanel.setText("");
         String state = this.jTextField15StateSetQ.getText();
         String action = this.jTextField14ActionSetQ.getText();
         String value = this.jTextField16QSetQ.getText();
-        Application.getInstance().getModule().setQValue(null, null, Double.parseDouble(value));
+        
+        Application.getInstance().addState(state);
+        Application.getInstance().addAction(action);
+        State stateObject = Application.getInstance().getStates().get(state);
+        Action actionObject = Application.getInstance().getActions().get(action);
+        Double qval = Double.valueOf(0); 
+        try{
+            qval = Double.parseDouble(value);
+        }catch(NumberFormatException e){
+            this.jTextPane1OutputPanel.setText("Can't parse q value");
+            return;
+        }
+        
+        Application.getInstance().getModule().setQValue(stateObject, actionObject, qval);
+        this.jTextField15StateSetQ.setText("");
+        this.jTextField14ActionSetQ.setText("");
+        this.jTextField16QSetQ.setText("");
     }//GEN-LAST:event_jButton8SetQActionPerformed
 
     private void jButton6RemoveActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6RemoveActionActionPerformed
         // remove action from text field 12
+        this.jTextPane1OutputPanel.setText("");
         String action = this.jTextField12RemoveAction.getText();
-        Application.getInstance().removeAction(action);
+        if(action.equals("")){
+            this.jTextPane1OutputPanel.setText("Can't remove action");
+        }else{
+            Application.getInstance().removeAction(action);
+        }
+        this.jTextField12RemoveAction.setText("");
     }//GEN-LAST:event_jButton6RemoveActionActionPerformed
 
     private void jButton7RemoveStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7RemoveStateActionPerformed
         // remove state from text field 13
+        this.jTextPane1OutputPanel.setText("");
         String state = this.jTextField13RemoveState.getText();
-        Application.getInstance().removeState(state);
+        if(state.equals("")){
+            this.jTextPane1OutputPanel.setText("Can't remove state");
+        }else{
+            Application.getInstance().removeState(state);
+        }
+        this.jTextField13RemoveState.setText("");
     }//GEN-LAST:event_jButton7RemoveStateActionPerformed
 
     private void jTextField10ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionActionPerformed
